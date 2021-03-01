@@ -25,7 +25,13 @@ SECRET_KEY = 't$j)ixci^-u85mm2gyjbltx1izl5jbf*e=uz@c$*me%*p!-ffq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*',]
+
+LOGIN_URL = "/login/"
+
+STATICFILES_DIRS = [
+    BASE_DIR/'static'
+]
 
 
 # Application definition
@@ -37,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'twitter_app'
 ]
 
 MIDDLEWARE = [
@@ -118,3 +125,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# AUTH_USER_MODEL = 'twitter_app.CustomUser'
