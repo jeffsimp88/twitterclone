@@ -1,4 +1,29 @@
 body{
+    display: flex;
+    flex-direction: row;
+    margin: 0;
     background-color: rgb(73, 73, 73);
     color: whitesmoke
+}
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: rgb(34, 34, 80);
+}
+main{
+    padding: 10px;
+
+}
+
+a{
+    text-decoration: none;
+    color: orange;
+    transition-duration: .2s ;
+}
+
+a:hover{
+    color: greenyellow;
 }
