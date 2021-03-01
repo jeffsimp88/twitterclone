@@ -4,4 +4,5 @@ from twitteruser import views
 
 urlpatterns = [
     path('', views.index_view, name='homepage'),
+    path('users/<user_name>/', views.profile_view, name='profile page')
 ]
