@@ -1,5 +1,8 @@
-{% load static %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-<h1>Here is my homepage!</h1>
-<h2>here is my variable: {{heading}}</h2>
+{% extends 'base.html' %}
+{% block content %}
+<ul>
+    {% for user in users_list %}
+    <li>user: {{user.username}} </li>
+    {% endfor %}
+</ul>
+{% endblock %}
