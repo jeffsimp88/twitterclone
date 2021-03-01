@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 <p>Here's {{user.username}} </p>
+
+{% if request.user == user %}
+<a href="/posttweet">Post a Tweet</a>
+{% endif %}
+
 <ul>
     {% for tweet in tweets %}
 
