@@ -30,7 +30,7 @@ def signup_view(request):
         form = SignupForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            new_user = User.objects.create_user(
+            new_user = CustomUser.objects.create_user(
                 username=data['username'],
                 display_name = data['display_name'],
                 email = data['email'],
@@ -50,3 +50,7 @@ def signup_view(request):
         'signing_in': True,
     }
     return render(request, "forms.html", context)
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect('/')
