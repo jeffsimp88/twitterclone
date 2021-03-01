@@ -1,9 +1,6 @@
-{% load static %}
-
-<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+{% extends 'base.html' %}
+{% block content %}
 <div id="titleBox">
-    <h1>{{heading}}</h1>
-
     {% if logging_in %}
     <h3> Not a current user? <a href="/signup">Signup!</a></h3>
     {% elif signing_in %}
@@ -16,5 +13,4 @@
         <input type="submit" value="Submit!">
     </form>
 </div>
-
-<h5><a href="/">Back to Homepage</a></h5>
+{% endblock %}
