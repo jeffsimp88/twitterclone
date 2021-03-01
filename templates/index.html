@@ -2,13 +2,16 @@
 {% block content %}
 
 {% if request.user.is_authenticated %}
+<a href="/users/{{request.user.username}}">Go to your Page</a>
+<br>
 <a href="/posttweet">Post a new Tweet</a>
 {% endif %}
 
 <ul>
     {% for tweet in tweet_list %}
 
-    <li>{{tweet.message}} <br> <strong>{{tweet.post_user.username}} | {{tweet.date_posted}} </strong> </li>
+    <li>{{tweet.message}} <br> <strong><a href="/users/{{tweet.post_user.username}}">{{tweet.post_user.username}}</a> |
+            {{tweet.date_posted}} </strong> </li>
     <br>
     {% endfor %}
 </ul>
