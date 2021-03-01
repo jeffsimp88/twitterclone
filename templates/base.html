@@ -1,14 +1,24 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-<h1>Here is my homepage!</h1>
-<h2>here is my variable: {{heading}}</h2>
-{% block content%}
+<body>
+    <header>
+        <h1>Twitter</h1>
+        <a href="/">Home</a>
+        {% if request.user.is_authenticated %}
+        <div class="logoutLink"><a id="logoutText" href="/logout">Logout</a></div>
+        {% endif %}
+    </header>
+    <main>
 
-{% endblock %}
+        <h2>{{heading}}</h2>
+        {% block content%}
+
+        {% endblock %}
 
 
 
-{% if request.user.is_authenticated %}
-<div class="logoutLink"><a id="logoutText" href="/logout">Logout</a></div>
-{% endif %}
+
+    </main>
+
+</body>
