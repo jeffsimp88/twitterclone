@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<p>Here's {{user.username}} </p>
+<ul>
+    {% for tweet in tweets %}
+
+    <li>{{tweet.message}} <br> <strong>{{tweet.date_posted}} </strong> </li>
+    <br>
+    {% endfor %}
+</ul>
+
+{% endblock %}
