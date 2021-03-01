@@ -13,10 +13,10 @@ class CustomUserChangeForm(UserChangeForm):
         model = CustomUser
         fields = ('username', 'display_name', 'email',)
 
-class SignupForm(forms.Forms):
+class SignupForm(forms.Form):
     username = forms.CharField(max_length=100)
-    display_name= forms.CharField(max_length=100)
-    email = forms.EmailField()
+    display_name= forms.CharField(max_length=50)
+    email = forms.EmailField(max_length=250)
     password = forms.CharField(widget=forms.PasswordInput)
 
 class LoginForm(forms.Form):
