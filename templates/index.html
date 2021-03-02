@@ -10,7 +10,8 @@
 <ul>
     {% for tweet in tweet_list %}
 
-    <li>{{tweet.message}} <br> <strong><a href="/users/{{tweet.post_user.username}}">{{tweet.post_user.username}}</a> |
+    <li> <a href="/tweet/{{tweet.id}}">{{tweet.message}} </a> <br> <strong><a
+                href="/users/{{tweet.post_user.username}}">{{tweet.post_user.username}}</a> |
             {{tweet.date_posted}} </strong> </li>
     <br>
     {% endfor %}

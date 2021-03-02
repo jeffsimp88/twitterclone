@@ -20,11 +20,12 @@
 {% endif %}
 {% endif %}
 
-
+<p>Tweets: {{tweets.count}} </p>
 <ul>
     {% for tweet in tweets %}
 
-    <li>{{tweet.message}} <br> <strong>{{tweet.date_posted}} </strong> </li>
+    <li> <a href="/tweet/{{tweet.id}}">{{tweet.message}} </a> <br> <strong>
+            {{tweet.date_posted}} </strong> </li>
     <br>
     {% endfor %}
 </ul>
