@@ -12,7 +12,7 @@
 {% if request.user == user %}
 <a href="/posttweet">Post a Tweet</a>
 {% endif %}
-{% if request.user != user %}
+{% if request.user != user and request.user.is_authenticated %}
 {% if is_followed %}
 <a href='/follow/{{user}}'>Unfollow</a>
 {% else %}

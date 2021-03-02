@@ -25,19 +25,28 @@ def profile_view(request, user_name):
     user_info = CustomUser.objects.get(username=user_name)
     tweets = Tweet.objects.filter(post_user=user_info)
     followers = Followers.objects.filter(user=user_info.id)
-    is_followed = check_following(request, user_name)    
     if not followers:
         followers = None
     else:
         followers = Followers.objects.get(user=user_info.id)
-    context = {
-        'heading': f'The Profile Page of {user_info.display_name}',
-        'user': user_info,
-        'tweets': tweets,
-        'is_followed': is_followed,
-        'followers':followers,
-        }
-    return render(request, 'user_page.html', context)
+    if not request.user.is_authenticated:
+        context = {
+            'heading': f'The Profile Page of {user_info.display_name}',
+            'user': user_info,
+            'tweets': tweets,
+            'followers':followers,
+            }
+        return render(request, 'user_page.html', context)
+    else:
+        is_followed = check_following(request, user_name)    
+        context = {
+            'heading': f'The Profile Page of {user_info.display_name}',
+            'user': user_info,
+            'tweets': tweets,
+            'is_followed': is_followed,
+            'followers':followers,
+            }
+        return render(request, 'user_page.html', context)
 
 
 def follow_user(request, user_name):
