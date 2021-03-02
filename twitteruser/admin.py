@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from twitteruser.models import CustomUser
+from twitteruser.models import CustomUser, Followers
 from twitteruser.forms import CustomUserChangeForm, CustomUserForm
 
 class CustomUserAdmin(UserAdmin):
@@ -23,3 +23,4 @@ class CustomUserAdmin(UserAdmin):
     ordering = ('username', 'display_name', 'email',)
 
 admin.site.register(CustomUser, CustomUserAdmin)
+admin.site.register(Followers)
