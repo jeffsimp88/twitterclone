@@ -2,9 +2,24 @@
 {% block content %}
 <p>Here's {{user.username}} </p>
 
+
+{% if followers != None %}
+<p>Following: {{followers.following_user.count}} </p>
+{% else %}
+<p>Following: 0 </p>
+{% endif %}
+
 {% if request.user == user %}
 <a href="/posttweet">Post a Tweet</a>
 {% endif %}
+{% if request.user != user %}
+{% if is_followed %}
+<a href='/follow/{{user}}'>Unfollow</a>
+{% else %}
+<a href='/follow/{{user}}'>Follow</a>
+{% endif %}
+{% endif %}
+
 
 <ul>
     {% for tweet in tweets %}
