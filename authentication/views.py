@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
-from twitteruser.models import CustomUser
+from twitteruser.models import CustomUser, Followers
 from authentication.forms import LoginForm, SignupForm
 from django.contrib.auth.decorators import login_required
 
@@ -35,6 +35,9 @@ def signup_view(request):
                 display_name = data['display_name'],
                 email = data['email'],
                 password=data['password']
+            )
+            new_followers = Followers.objects.create(
+                user = new_user
             )
             user = authenticate(
                 request, username=data['username'], password=data['password']
