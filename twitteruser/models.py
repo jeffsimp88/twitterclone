@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 
 
@@ -11,3 +12,10 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.username
+
+class Followers(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    following_user = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='following_user', null=True, blank=True)
+
+    def __str__(self):
+        return self.user.username
