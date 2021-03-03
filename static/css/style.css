@@ -15,6 +15,7 @@ body{
     color: whitesmoke
 }
 header{
+    position: sticky;
     font-family: 'Oswald', sans-serif;
     display: flex;
     flex-direction: column;
@@ -22,6 +23,8 @@ header{
     justify-content: space-around;
     padding: 10px;
     background-color: rgb(34, 34, 80);
+    height: 97.5%;
+    top: 0;
 }
 main{
     padding: 10px;
