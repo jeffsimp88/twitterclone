@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-<p>Here's {{user.username}} </p>
+<div>@{{user.username}} </div>
 
 <p>Following: {{followers.count}} </p>
 
-{% if follower.count > 0 %}
+{% if followers.count > 0 %}
 <details>
     <summary>Users Following</summary>
     {% for follower in followers %}
@@ -26,7 +26,7 @@
 {% endif %}
 {% endif %}
 
-<p>Tweets: {{tweets.count}} </p>
+<p>Total Tweets: {{tweets.count}} </p>
 <ul>
     {% for tweet in tweets %}
     <div class="tweetBox">
