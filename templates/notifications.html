@@ -1,5 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<p> Here's my notifiction page </p>
+{% for tweet in tweets %}
+<p>Tweet: {{tweet.message}} | {{tweet.post_user}} </p>
+{% endfor %}
+
+{% for notify in notifications %}
+<p>{{notify.tweet.message}} from {{notify.tweet.post_user}} </p>
+
+{% endfor %}
+
+<p> Here's my notification page </p>
+
 {% endblock %}
