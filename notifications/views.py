@@ -1,3 +1,7 @@
 from django.shortcuts import render
+from notifications.models import Notification
 
-# Create your views here.
+
+def notifications_view(request):
+    context = {'heading': 'Notifications!'}
+    return render(request, 'notifications.html', context)
