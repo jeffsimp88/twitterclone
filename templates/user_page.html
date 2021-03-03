@@ -3,12 +3,16 @@
 <p>Here's {{user.username}} </p>
 
 
-{% if followers != None %}
 <p>Following: {{followers.count}} </p>
-{% else %}
-<p>Following: 0 </p>
-{% endif %}
 
+<details>
+    <summary>Users Following</summary>
+    {% for follower in followers %}
+    <li><a href="/users/{{follower}}">{{follower.username}}</a></li>
+    {% endfor %}
+</details>
+
+<br>
 {% if request.user == user %}
 <a href="/posttweet">Post a Tweet</a>
 {% endif %}
