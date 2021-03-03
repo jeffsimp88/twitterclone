@@ -12,7 +12,7 @@ def filter_following(request):
     for tweet in tweet_list:
             if tweet.post_user in following_list or tweet.post_user == request.user:
                 new_list.append(tweet)
-    return new_list
+    return new_list[::-1]
 
 @login_required
 def index_view(request):
