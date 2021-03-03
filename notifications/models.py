@@ -8,5 +8,5 @@ class Notification(models.Model):
     tweet = models.ForeignKey(Tweet, on_delete=models.CASCADE)
     is_viewed = models.BooleanField(default=False)
     def __str__(self):
-        return f'Notification from {self.tweet.post_user} | {tweet.message}'
+        return f'Notification from {self.tweet.post_user} | {self.tweet.message}'
 
