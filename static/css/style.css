@@ -25,6 +25,7 @@ header{
     background-color: rgb(34, 34, 80);
     height: 97.5%;
     top: 0;
+    box-shadow: 3px 3px 6px 0px #00000045;
 }
 main{
     padding: 10px;
@@ -62,6 +63,7 @@ summary{
     background-color: rgb(58, 57, 57);
     padding: 10px 7px 10px 7px;
     font-size: 20px;
+    box-shadow: inset 3px 3px 6px 0px #0000001f;
 }
 
 .tweetBoxFooter{
