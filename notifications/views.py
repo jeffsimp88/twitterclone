@@ -38,12 +38,28 @@ def notifications_view(request):
     context = {'heading': 'Notifications!'}
     current_user = request.user
     new_notifications = Notification.objects.filter(tag_user=current_user).filter(is_viewed=False)
+    
     tweets = filter_notifications(request, new_notifications)
     for notify in new_notifications:
         notify.is_viewed = True
         notify.save()
     context.update({
-        'notifications': new_notifications, 
+        'new_notifications': new_notifications, 
+        'tweets': tweets, 
+        'user': current_user
+        })
+    return render(request, 'notifications.html', context)
+
+@login_required
+def old_notification_view(request):
+    context = {'heading': 'Old Notifications!'}
+    notifications = check_notifications(request.user)
+    current_user = request.user
+    new_notifications = Notification.objects.filter(tag_user=current_user).filter(is_viewed=True)
+    tweets = filter_notifications(request, new_notifications)
+    context.update({
+        'new_notifications': new_notifications,
+        'notifications': notifications, 
         'tweets': tweets, 
         'user': current_user
         })
