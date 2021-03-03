@@ -21,7 +21,7 @@ def index_view(request):
     notifications = check_notifications(request.user)
     recent_page = False
     context = {
-        'heading': f'Welcome, {request.user.username}!', 
+        'heading': f'Welcome, {request.user.display_name}!', 
         'tweet_list': tweet_list,
         'notifications': notifications,
         'recent_page': recent_page,
