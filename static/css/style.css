@@ -44,3 +44,29 @@ a:hover{
 summary{
     outline: none;
 }
+
+.tweetBox{
+    background-color: rgb(75, 75, 138);
+    border: 1px solid black;
+    box-shadow: 3px 3px 6px 0px #00000045;
+    min-width: 400px;
+    max-width: 450px;
+    box-sizing: border-box;
+}
+
+.tweetBoxHeader{
+    background-color: rgb(75, 75, 138);
+    padding: 5px ;
+}
+.tweetBoxBody{
+    background-color: rgb(58, 57, 57);
+    padding: 10px 7px 10px 7px;
+    font-size: 20px;
+}
+
+.tweetBoxFooter{
+    background-color: rgb(75, 75, 138);
+    padding: 5px;
+    font-size: 13px;
+    text-align: right;
+}
