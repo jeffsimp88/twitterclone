@@ -67,8 +67,18 @@ summary{
 }
 
 .tweetBoxFooter{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     background-color: rgb(75, 75, 138);
     padding: 5px;
     font-size: 13px;
     text-align: right;
+}
+
+#deleteTweet{
+    opacity: .4;
+}
+#deleteTweet:hover{
+    opacity: 1;
 }
