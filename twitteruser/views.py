@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
-from twitteruser.models import CustomUser, Followers
+from twitteruser.models import CustomUser
 from tweet.models import Tweet
 from django.contrib.auth.decorators import login_required
 
@@ -12,10 +12,9 @@ def index_view(request):
 
 def check_following(request, user_name):
     user_info = CustomUser.objects.get(username=user_name)
-    session_user = request.user
-    session_following= Followers.objects.get(user=session_user)
-    following= Followers.objects.get(user=session_user.id)
-    if session_following.following_user.filter(username=user_name).exists() or following.following_user.filter(username=user_name).exists():
+    current_user = request.user
+    users_following= current_user.following_user
+    if users_following.filter(username=user_name).exists():
         is_followed=True
     else:
         is_followed=False
@@ -24,11 +23,9 @@ def check_following(request, user_name):
 def profile_view(request, user_name):
     user_info = CustomUser.objects.get(username=user_name)
     tweets = Tweet.objects.filter(post_user=user_info)
-    followers = Followers.objects.filter(user=user_info.id)
+    followers = user_info.following_user
     if not followers:
         followers = None
-    else:
-        followers = Followers.objects.get(user=user_info.id)
     if not request.user.is_authenticated:
         context = {
             'heading': f'The Profile Page of {user_info.display_name}',
@@ -52,17 +49,17 @@ def profile_view(request, user_name):
 def follow_user(request, user_name):
     other_user = CustomUser.objects.get(username=user_name)
     get_user = CustomUser.objects.get(username=request.user)
-    check_follower = Followers.objects.get(user=get_user.id)
+    check_follower = get_user.following_user
     is_followed = False
     if other_user.username != request.user:
-        if check_follower.following_user.filter(username=other_user).exists():
-            remove_follower = Followers.objects.get(user=get_user)
-            remove_follower.following_user.remove(other_user)
+        if check_follower.filter(username=other_user).exists():
+            # remove_follower = Followers.objects.get(user=get_user)
+            check_follower.remove(other_user)
             is_followed = False
             return redirect(f'/users/{other_user}')
         else:
-            add_follower = Followers.objects.get(user=get_user)
-            add_follower.following_user.add(other_user)
+            # add_follower = Followers.objects.get(user=get_user)
+            check_follower.add(other_user)
             is_followed = True
             return redirect(f'/users/{other_user}')
     else:
