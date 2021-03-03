@@ -23,9 +23,7 @@ def check_following(request, user_name):
 def profile_view(request, user_name):
     user_info = CustomUser.objects.get(username=user_name)
     tweets = Tweet.objects.filter(post_user=user_info)
-    followers = user_info.following_user
-    if not followers:
-        followers = None
+    followers = user_info.following_user.all()
     if not request.user.is_authenticated:
         context = {
             'heading': f'The Profile Page of {user_info.display_name}',
