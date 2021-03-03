@@ -4,10 +4,20 @@ from tweet.models import Tweet
 from django.contrib.auth.decorators import login_required
 
 
+
+def filter_following(request):
+    tweet_list = Tweet.objects.all()
+    following_list = request.user.following_user.all()
+    new_list = []
+    for tweet in tweet_list:
+            if tweet.post_user in following_list or tweet.post_user == request.user:
+                new_list.append(tweet)
+    return new_list
+
 @login_required
 def index_view(request):
-    tweet_list = Tweet.objects.all()[::-1]
-    context = {'heading': f'Welcome, {request.user.username}!', 'tweet_list': tweet_list}
+    tweet_list = filter_following(request)
+    context = {'heading': f'Welcome, {request.user.username}!', 'tweet_list': tweet_list}    
     return render(request, 'index.html', context)
 
 def check_following(request, user_name):
