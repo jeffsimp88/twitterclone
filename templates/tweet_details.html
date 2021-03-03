@@ -1,7 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-<p>Message: {{tweet.message}} </p>
-<p>User: {{tweet.post_user}} </p>
-<p>date: {{tweet.date_posted}} </p>
+<div class="tweetBox">
+    <div class="tweetBoxHeader">
+        <strong><a href="/users/{{tweet.post_user.username}}">@{{tweet.post_user.username}} |
+                {{tweet.post_user.display_name}} </a>
+        </strong>
+    </div>
+    <div class="tweetBoxBody">
+        <a href="/tweet/{{tweet.id}}">{{tweet.message}} </a>
+    </div>
+    <div class="tweetBoxFooter">
+        {{tweet.date_posted}}
+    </div>
+</div>
+<br>
 
 {% endblock %}

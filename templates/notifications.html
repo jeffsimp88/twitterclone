@@ -11,10 +11,19 @@
 
 <ul>
     {% for notify in new_notifications %}
-
-    <li> <a href="/tweet/{{notify.tweet.id}}">{{notify.tweet.message}} </a> <br> <strong><a
-                href="/users/{{notify.tweet.post_user.username}}">{{notify.tweet.post_user.username}}</a> |
-            {{notify.tweet.date_posted}} </strong> </li>
+    <div class="tweetBox">
+        <div class="tweetBoxHeader">
+            <strong><a href="/users/{{notify.tweet.post_user.username}}">@{{notify.tweet.post_user.username}} |
+                    {{notify.tweet.post_user.display_name}} </a>
+            </strong>
+        </div>
+        <div class="tweetBoxBody">
+            <a href="/tweet/{{notify.tweet.id}}">{{notify.tweet.message}} </a>
+        </div>
+        <div class="tweetBoxFooter">
+            {{notify.tweet.date_posted}}
+        </div>
+    </div>
     <br>
     {% endfor %}
 </ul>
