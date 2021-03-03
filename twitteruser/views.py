@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from twitteruser.models import CustomUser
 from tweet.models import Tweet
+from notifications.views import check_notifications, create_notification
 from django.contrib.auth.decorators import login_required
 
 
@@ -17,7 +18,12 @@ def filter_following(request):
 @login_required
 def index_view(request):
     tweet_list = filter_following(request)
-    context = {'heading': f'Welcome, {request.user.username}!', 'tweet_list': tweet_list}    
+    notifications = check_notifications(request.user)
+    context = {
+        'heading': f'Welcome, {request.user.username}!', 
+        'tweet_list': tweet_list,
+        'notifications': notifications
+        }    
     return render(request, 'index.html', context)
 
 def check_following(request, user_name):
@@ -31,6 +37,7 @@ def check_following(request, user_name):
     return is_followed
 
 def profile_view(request, user_name):
+    notifications = check_notifications(request.user)
     user_info = CustomUser.objects.get(username=user_name)
     tweets = Tweet.objects.filter(post_user=user_info)
     followers = user_info.following_user.all()
@@ -48,6 +55,7 @@ def profile_view(request, user_name):
             'heading': f'The Profile Page of {user_info.display_name}',
             'user': user_info,
             'tweets': tweets,
+            'notifications': notifications,
             'is_followed': is_followed,
             'followers':followers,
             }
