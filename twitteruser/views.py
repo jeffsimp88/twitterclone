@@ -19,20 +19,24 @@ def filter_following(request):
 def index_view(request):
     tweet_list = filter_following(request)
     notifications = check_notifications(request.user)
+    recent_page = False
     context = {
         'heading': f'Welcome, {request.user.username}!', 
         'tweet_list': tweet_list,
-        'notifications': notifications
+        'notifications': notifications,
+        'recent_page': recent_page,
         }    
     return render(request, 'index.html', context)
 
 def recent_tweets_view(request):
     tweet_list = Tweet.objects.all()[::-1]
     notifications = check_notifications(request.user)
+    recent_page = True
     context = {
         'heading': '10 most recent tweets', 
         'tweet_list': tweet_list[:10],
-        'notifications': notifications
+        'notifications': notifications,
+        'recent_page': recent_page,
         }    
     return render(request, 'index.html', context)
 
