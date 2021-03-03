@@ -22,6 +22,9 @@
         </div>
         <div class="tweetBoxFooter">
             {{notify.tweet.date_posted}}
+            {% if request.user == notify.tweet.post_user %}
+            <a id="deleteTweet" href="/deletetweet/{{notify.tweet.id}}">delete</a>
+            {% endif %}
         </div>
     </div>
     <br>
