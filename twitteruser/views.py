@@ -26,6 +26,16 @@ def index_view(request):
         }    
     return render(request, 'index.html', context)
 
+def recent_tweets_view(request):
+    tweet_list = Tweet.objects.all()[::-1]
+    notifications = check_notifications(request.user)
+    context = {
+        'heading': '10 most recent tweets', 
+        'tweet_list': tweet_list[:10],
+        'notifications': notifications
+        }    
+    return render(request, 'index.html', context)
+
 def check_following(request, user_name):
     user_info = CustomUser.objects.get(username=user_name)
     current_user = request.user
@@ -69,12 +79,10 @@ def follow_user(request, user_name):
     is_followed = False
     if other_user.username != request.user:
         if check_follower.filter(username=other_user).exists():
-            # remove_follower = Followers.objects.get(user=get_user)
             check_follower.remove(other_user)
             is_followed = False
             return redirect(f'/users/{other_user}')
         else:
-            # add_follower = Followers.objects.get(user=get_user)
             check_follower.add(other_user)
             is_followed = True
             return redirect(f'/users/{other_user}')
