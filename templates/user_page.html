@@ -2,9 +2,9 @@
 {% block content %}
 <p>Here's {{user.username}} </p>
 
-
 <p>Following: {{followers.count}} </p>
 
+{% if follower.count > 0 %}
 <details>
     <summary>Users Following</summary>
     {% for follower in followers %}
@@ -13,6 +13,8 @@
 </details>
 
 <br>
+{% endif %}
+
 {% if request.user == user %}
 <a href="/posttweet">Post a Tweet</a>
 {% endif %}
