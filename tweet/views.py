@@ -31,3 +31,7 @@ def tweet_view(request, tweet_id):
     context.update({'tweet': tweet})
     return render(request, 'tweet_details.html', context)
     
+def delete_tweet_view(request, tweet_id):
+    tweet = Tweet.objects.get(id=tweet_id)
+    tweet.delete()
+    return HttpResponseRedirect('/')
