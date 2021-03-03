@@ -28,6 +28,10 @@
             <a href="/tweet/{{tweet.id}}">{{tweet.message}} </a>
         </div>
         <div class="tweetBoxFooter">
+            {% if request.user == tweet.post_user %}
+            <a href="/deletetweet/{{tweet.id}}">delete</a>
+            <br>
+            {% endif %}
             {{tweet.date_posted}}
         </div>
     </div>
