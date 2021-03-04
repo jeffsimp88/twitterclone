@@ -25,7 +25,9 @@ def post_tweet_view(request):
     return render(request, 'forms.html', context)
 
 def tweet_view(request, tweet_id):
-    notifications = check_notifications(request.user)
+    notifications = ''
+    if request.user.is_authenticated:
+        notifications = check_notifications(request.user)
     context = {'heading': "Tweet Details", 'notifications': notifications}
     tweet = Tweet.objects.get(id=tweet_id)
     context.update({'tweet': tweet})

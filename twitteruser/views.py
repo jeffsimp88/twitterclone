@@ -51,7 +51,9 @@ def check_following(request, user_name):
     return is_followed
 
 def profile_view(request, user_name):
-    notifications = check_notifications(request.user)
+    notifications = ''
+    if request.user.is_authenticated:
+        notifications = check_notifications(request.user)
     user_info = CustomUser.objects.get(username=user_name)
     tweets = Tweet.objects.filter(post_user=user_info)[::-1]
     followers = user_info.following_user.all()
