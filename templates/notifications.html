@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+{% if not new_notifications %}
+<p>No notifications</p>
+{% if request.path != "/notifications/old" %}
+<a href="/notifications/old">Want to see old notifications?</a>
+{% endif %}
+{% endif %}
+
+<ul>
+    {% for notify in new_notifications %}
+    <div class="tweetBox">
+        <div class="tweetBoxHeader">
+            <strong><a href="/users/{{notify.tweet.post_user.username}}">@{{notify.tweet.post_user.username}} |
+                    {{notify.tweet.post_user.display_name}} </a>
+            </strong>
+        </div>
+        <div class="tweetBoxBody">
+            <a href="/tweet/{{notify.tweet.id}}">{{notify.tweet.message}} </a>
+        </div>
+        <div class="tweetBoxFooter">
+            {{notify.tweet.date_posted}}
+            {% if request.user == notify.tweet.post_user %}
+            <a id="deleteTweet" href="/deletetweet/{{notify.tweet.id}}">delete</a>
+            {% endif %}
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="tweetBox">
+    <div class="tweetBoxHeader">
+        <strong><a href="/users/{{tweet.post_user.username}}">@{{tweet.post_user.username}} |
+                {{tweet.post_user.display_name}} </a>
+        </strong>
+    </div>
+    <div class="tweetBoxBody">
+        <a href="/tweet/{{tweet.id}}">{{tweet.message}} </a>
+    </div>
+    <div class="tweetBoxFooter">
+        {{tweet.date_posted}}
+        {% if request.user == tweet.post_user %}
+        <a id="deleteTweet" href="/deletetweet/{{tweet.id}}">delete</a>
+        {% endif %}
+    </div>
+</div>
+<br>
+
+{% endblock %}

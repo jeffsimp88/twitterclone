@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="profileBox">
+    <div class="profileHeader">Username: @{{user.username}}
+        {% if request.user != user and request.user.is_authenticated %}
+        {% if is_followed %}
+        <a class="followLink" style="background-color: rgb(187, 0, 0);" href='/follow/{{user}}'>Unfollow</a>
+        {% else %}
+        <a class="followLink" style="background-color: rgb(1, 95, 1);" href='/follow/{{user}}'>Follow</a>
+        {% endif %}
+        {% endif %}
+    </div>
+
+    {% if followers.count > 0 %}
+    <br>
+    <details>
+        <summary>Users Following: {{followers.count}} </summary>
+        {% for follower in followers %}
+        <p style="margin-left: 15px;"><a href="/users/{{follower}}">@{{follower.username}}</a></p>
+        {% endfor %}
+    </details>
+
+    <br>
+    {% else %}
+    <p>Following: {{followers.count}} </p>
+    {% endif %}
+
+    {% if request.user == user %}
+    <a href="/posttweet">Post a New Tweet</a>
+    {% endif %}
+
+    <p>Total Tweets: {{tweets|length}} </p>
+    <ul>
+        {% for tweet in tweets %}
+        <div class="tweetBox">
+            <div class="tweetBoxHeader">
+                <strong><a href="/users/{{tweet.post_user.username}}">@{{tweet.post_user.username}} |
+                        {{tweet.post_user.display_name}} </a>
+                </strong>
+            </div>
+            <div class="tweetBoxBody">
+                <a href="/tweet/{{tweet.id}}">{{tweet.message}} </a>
+            </div>
+            <div class="tweetBoxFooter">
+                {{tweet.date_posted}}
+                {% if request.user == tweet.post_user %}
+                <a id="deleteTweet" href="/deletetweet/{{tweet.id}}">delete</a>
+                {% endif %}
+            </div>
+        </div>
+        <br>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

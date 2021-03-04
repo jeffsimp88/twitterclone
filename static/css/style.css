@@ -1,3 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo&family=Josefin+Sans&family=Oswald:wght@200;300;400;500;600;700&family=Quicksand&display=swap');
+/* 
+font-family: 'Arimo', sans-serif;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Oswald', sans-serif;
+font-family: 'Quicksand', sans-serif; 
+*/
+
 body{
-    background-color: rgb(255, 190, 255);
+    font-family: 'Arimo', sans-serif;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    background-color: rgb(73, 73, 73);
+    color: whitesmoke
+}
+header{
+    position: sticky;
+    font-family: 'Oswald', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: rgb(34, 34, 80);
+    height: 97.5%;
+    top: 0;
+    box-shadow: 3px 3px 6px 0px #00000045;
+}
+main{
+    padding: 10px;
+
+}
+
+.NavLink{
+    font-size: 18px;
+    font-family: 'Quicksand', sans-serif;
+}
+#noteLink{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#noteDot{
+    font-family: 'Oswald', sans-serif;
+    background-color: rgb(187, 0, 0);
+    border-radius: 50%;
+    color: white;
+    width: 15px;
+    height: 15px;
+    font-size: 10px;
+    text-align: center;
+    padding: 2px;
+
+}
+
+a{
+    text-decoration: none;
+    color: orange;
+    transition-duration: .2s ;
+}
+
+a:hover{
+    color: greenyellow;
+}
+
+summary{
+    outline: none;
+}
+
+.tweetBox{
+    background-color: rgb(75, 75, 138);
+    border: 1px solid black;
+    box-shadow: 3px 3px 6px 0px #00000045;
+    min-width: 400px;
+    max-width: 450px;
+    box-sizing: border-box;
+}
+
+.tweetBoxHeader{
+    font-family: 'Quicksand', sans-serif; 
+    background-color: rgb(75, 75, 138);
+    padding: 5px ;
+}
+.tweetBoxBody{
+    font-family: 'Arimo', sans-serif;
+    background-color: rgb(58, 57, 57);
+    padding: 10px 7px 10px 7px;
+    font-size: 20px;
+    box-shadow: inset 3px 3px 6px 0px #0000001f;
+}
+
+.tweetBoxFooter{
+    font-family: 'Quicksand', sans-serif; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(36, 36, 66);
+    padding: 5px;
+    font-size: 13px;
+    text-align: right;
+}
+
+
+#deleteTweet{
+    opacity: .4;
+}
+#deleteTweet:hover{
+    opacity: 1;
+}
+
+
+/*PROFILE PAGE CSS */
+
+/* 
+
+font-family: 'Oswald', sans-serif;
+font-family: 'Arimo', sans-serif;
+font-family: 'Quicksand', sans-serif; 
+*/
+
+.profileBox{
+    font-family: 'Josefin Sans', sans-serif;
+    box-shadow: 3px 3px 5px 3px #00000038;
+    background-color: rgb(37, 37, 37);
+    padding: 10px;
+    border-radius: 1%;
+}
+
+.profileHeader{
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+}
+
+.followLink{
+    border: 1px solid black;
+    border-radius: 10%;
+    transition-duration: .2s;
+    padding: 5px;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.followLink:hover{
+    border: 1px solid orange;
+    color: black;
 }

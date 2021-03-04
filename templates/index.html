@@ -1,5 +1,39 @@
-{% load static %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% extends 'base.html' %}
+{% block content %}
 
-<h1>Here is my homepage!</h1>
-<h2>here is my variable: {{heading}}</h2>
+{% if request.user.is_authenticated %}
+<a href="/posttweet">Post a new Tweet</a>
+<br>
+{% endif %}
+
+
+{% if recent_page %}
+<br>
+<a href="/">See Followers tweets</a>
+{% else %}
+<br>
+<a href="/recenttweets">See 10 most recent tweets</a>
+{% endif %}
+
+<ul>
+    {% for tweet in tweet_list %}
+    <div class="tweetBox">
+        <div class="tweetBoxHeader">
+            <strong><a href="/users/{{tweet.post_user.username}}">@{{tweet.post_user.username}} |
+                    {{tweet.post_user.display_name}} </a>
+            </strong>
+        </div>
+        <div class="tweetBoxBody">
+            <a href="/tweet/{{tweet.id}}">{{tweet.message}} </a>
+        </div>
+        <div class="tweetBoxFooter">
+            <div>{{tweet.date_posted}}</div>
+            {% if request.user == tweet.post_user %}
+            <a id="deleteTweet" href="/deletetweet/{{tweet.id}}">delete</a>
+            {% endif %}
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+</ul>
+{% endblock %}
