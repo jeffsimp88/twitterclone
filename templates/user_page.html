@@ -29,7 +29,7 @@
     <a href="/posttweet">Post a New Tweet</a>
     {% endif %}
 
-    <p>Total Tweets: {{tweets.count}} </p>
+    <p>Total Tweets: {{tweets|length}} </p>
     <ul>
         {% for tweet in tweets %}
         <div class="tweetBox">
