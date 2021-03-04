@@ -32,6 +32,30 @@ main{
 
 }
 
+.NavLink{
+    font-size: 18px;
+    font-family: 'Quicksand', sans-serif;
+}
+#noteLink{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#noteDot{
+    font-family: 'Oswald', sans-serif;
+    background-color: rgb(187, 0, 0);
+    border-radius: 50%;
+    color: white;
+    width: 15px;
+    height: 15px;
+    font-size: 10px;
+    text-align: center;
+    padding: 2px;
+
+}
+
 a{
     text-decoration: none;
     color: orange;
@@ -56,10 +80,12 @@ summary{
 }
 
 .tweetBoxHeader{
+    font-family: 'Quicksand', sans-serif; 
     background-color: rgb(75, 75, 138);
     padding: 5px ;
 }
 .tweetBoxBody{
+    font-family: 'Arimo', sans-serif;
     background-color: rgb(58, 57, 57);
     padding: 10px 7px 10px 7px;
     font-size: 20px;
@@ -67,6 +93,7 @@ summary{
 }
 
 .tweetBoxFooter{
+    font-family: 'Quicksand', sans-serif; 
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -76,9 +103,48 @@ summary{
     text-align: right;
 }
 
+
 #deleteTweet{
     opacity: .4;
 }
 #deleteTweet:hover{
     opacity: 1;
+}
+
+
+/*PROFILE PAGE CSS */
+
+/* 
+
+font-family: 'Oswald', sans-serif;
+font-family: 'Arimo', sans-serif;
+font-family: 'Quicksand', sans-serif; 
+*/
+
+.profileBox{
+    font-family: 'Josefin Sans', sans-serif;
+    box-shadow: 3px 3px 5px 3px #00000038;
+    background-color: rgb(37, 37, 37);
+    padding: 10px;
+    border-radius: 1%;
+}
+
+.profileHeader{
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+}
+
+.followLink{
+    border: 1px solid black;
+    border-radius: 10%;
+    transition-duration: .2s;
+    padding: 5px;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.followLink:hover{
+    border: 1px solid orange;
+    color: black;
 }
