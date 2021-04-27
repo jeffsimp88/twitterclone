@@ -19,26 +19,26 @@ Functional components of site:
 ## See screenshots of code in operation
 
 ### Login Screen
-<img style="width: 500px;" src="https://raw.githubusercontent.com/jeffsimp88/twitterclone/main/screenshots/TwitterClone1.jpg">
+<img width="500" src="https://raw.githubusercontent.com/jeffsimp88/twitterclone/main/screenshots/TwitterClone1.jpg">
 
 ### Home Screen
-<img style="width: 500px;" src="https://raw.githubusercontent.com/jeffsimp88/twitterclone/main/screenshots/TwitterClone2.jpg">
+<img width="500" src="https://raw.githubusercontent.com/jeffsimp88/twitterclone/main/screenshots/TwitterClone2.jpg">
 
 ### Profile Screen
-<img style="width: 500px;" src="https://raw.githubusercontent.com/jeffsimp88/twitterclone/main/screenshots/TwitterClone3.jpg">
+<img width="500" src="https://raw.githubusercontent.com/jeffsimp88/twitterclone/main/screenshots/TwitterClone3.jpg">
 
 ### Post Tweet Screen
-<img style="width: 500px;" src="https://raw.githubusercontent.com/jeffsimp88/twitterclone/main/screenshots/TwitterClone4.jpg">
+<img width="500" src="https://raw.githubusercontent.com/jeffsimp88/twitterclone/main/screenshots/TwitterClone4.jpg">
 
 ### Notifications Screen
-<img style="width: 500px;" src="https://raw.githubusercontent.com/jeffsimp88/twitterclone/main/screenshots/TwitterClone5.jpg">
+<img width="500" src="https://raw.githubusercontent.com/jeffsimp88/twitterclone/main/screenshots/TwitterClone5.jpg">
 
 ### Old Notifications Screen
-<img style="width: 500px;" src="https://raw.githubusercontent.com/jeffsimp88/twitterclone/main/screenshots/TwitterClone6.jpg">
+<img width="500" src="https://raw.githubusercontent.com/jeffsimp88/twitterclone/main/screenshots/TwitterClone6.jpg">
 
 ### Follow Users
-<img style="width: 500px;" src="https://raw.githubusercontent.com/jeffsimp88/twitterclone/main/screenshots/TwitterClone7.jpg">
+<img width="500" src="https://raw.githubusercontent.com/jeffsimp88/twitterclone/main/screenshots/TwitterClone7.jpg">
 
 ### Unfollow Users
-<img style="width: 500px;" src="https://raw.githubusercontent.com/jeffsimp88/twitterclone/main/screenshots/TwitterClone8.jpg">
+<img width="500" src="https://raw.githubusercontent.com/jeffsimp88/twitterclone/main/screenshots/TwitterClone8.jpg">
 
